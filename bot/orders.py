@@ -17,9 +17,12 @@ def print_order_summary(params: dict):
 def print_order_result(response: dict):
     print("Order Response")
     print("---------------")
-    print(f"orderId:      {response.get('orderId')}")
-    print(f"status:       {response.get('status')}")
-    print(f"executedQty:  {response.get('executedQty')}")
+    order_id = response.get('orderId') or response.get('algoId')
+    status = response.get('status') or response.get('algoStatus')
+    executed_qty = response.get('executedQty', 'N/A')
+    print(f"orderId:      {order_id}")
+    print(f"status:       {status}")
+    print(f"executedQty:  {executed_qty}")
     avg_price = response.get('avgPrice')
     if avg_price:
         print(f"avgPrice:     {avg_price}")
