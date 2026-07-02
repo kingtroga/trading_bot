@@ -4,6 +4,7 @@ A simple Python CLI application that places MARKET, LIMIT, and STOP_LIMIT orders
 
 ## Project Structure
 
+```
 trading_bot/
   bot/
     __init__.py
@@ -15,39 +16,40 @@ trading_bot/
   logs/
   README.md
   requirements.txt
+```
 
 ## Setup
 
 1. Register on Binance Futures Testnet: https://testnet.binancefuture.com 
 2. Generate an API key and secret with futures trading permission enabled
 3. Clone this repo, then create and activate a virtual environment:
-
+```
    python -m venv .venv
    .venv\Scripts\activate
-
+```
 4. Install dependencies:
-
+```
    pip install -r requirements.txt
-
+```
 5. Create a `.env` file in the project root:
-
+```
    BINANCE_API_KEY=your_api_key_here
    BINANCE_API_SECRET=your_api_secret_here
-
+```
 ## How to Run
 
 Place a MARKET order:
-
+```
    python cli.py --symbol BTCUSDT --side BUY --type MARKET --quantity 0.01
-
+```
 Place a LIMIT order:
-
+```
    python cli.py --symbol BTCUSDT --side SELL --type LIMIT --quantity 0.01 --price 60000
-
+```
 Place a STOP_LIMIT order:
-
+```
    python cli.py --symbol BTCUSDT --side SELL --type STOP_LIMIT --quantity 0.01 --price 60000 --stop-price 59500
-
+```
 Logs for every request and response are written to `logs/trading_bot.log`.
 
 ## Assumptions
